@@ -9,6 +9,30 @@ A consent application is responsible for:
 
 You can use this demo for a rough guide on how to implement the consent flow using NodeJS. The only important source file is [this](https://github.com/ory/hydra-consent-app-express/blob/master/routes/index.js), everything else was created using `express init .`.
 
-If you are using Auth0, check out [hydra-auth0-consent-sdk](https://github.com/ory/hydra-auth0-consent-sdk)
+## docker
 
-A go implementation of the consent app is at [hydra-consent-app-go](https://github.com/ory/hydra-consent-app-go)
+To run this application using docker
+
+```console
+$ docker run --name hydra-consent-app-express \
+            -p 3000:8080 \
+            -e HYDRA_URL="http://localhost:4444"" \
+            -e HYDRA_CLIENT_ID="demo>" \
+            -e HYDRA_CLIENT_SECRET="demo" \
+            boeboe/hydra-consent-app-express
+```
+
+
+This demo consent application contains only one user
+
+```javascript
+const user = {
+  email: 'demo@aspenmesh.io',
+  password: 'secret',
+
+  email_verified: true,
+  user_id: 'user:12345:aspenmesh',
+  name: 'Aspen Mesh',
+  nickname: 'Aspen',
+}
+```

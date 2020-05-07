@@ -54,13 +54,13 @@ const catcher = (w) => (error) => {
 // This is a mock object for the user. Usually, you would fetch this from, for example, mysql, or mongodb, or somewhere else.
 // The data is arbitrary, but will require a unique user id.
 const user = {
-  email: 'dan@acme.com',
+  email: 'demo@aspenmesh.io',
   password: 'secret',
 
   email_verified: true,
-  user_id: 'user:12345:dandean',
-  name: 'Dan Dean',
-  nickname: 'Danny',
+  user_id: 'user:12345:aspenmesh',
+  name: 'Aspen Mesh',
+  nickname: 'Aspen'
 }
 
 const resolver = (resolve, reject) => (error, data, response) => {
