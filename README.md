@@ -17,7 +17,7 @@ To run this application using docker
 $ docker run --name hydra-consent-app-express \
             -p 3000:8080 \
             -e HYDRA_URL="http://localhost:4444"" \
-            -e HYDRA_CLIENT_ID="demo>" \
+            -e HYDRA_CLIENT_ID="demo" \
             -e HYDRA_CLIENT_SECRET="demo" \
             boeboe/hydra-consent-app-express
 ```
