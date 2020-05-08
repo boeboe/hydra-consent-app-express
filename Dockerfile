@@ -9,13 +9,13 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 ENV HYDRA_URL="http://localhost:4444"
-ENV HYDRA_CLIENT_ID="demo"
-ENV HYDRA_CLIENT_SECRET="demo"
+ENV HYDRA_CLIENT_ID="digibank"
+ENV HYDRA_CLIENT_SECRET="digibank123"
 ENV NODE_TLS_REJECT_UNAUTHORIZED=0
 
 COPY . /usr/src/app
-RUN npm install --silent; exit 0
-
-ENTRYPOINT npm start
 
 EXPOSE 3000
+
+RUN npm install --silent; exit 0
+ENTRYPOINT npm start

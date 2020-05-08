@@ -6,7 +6,7 @@ const qs = require('querystring')
 const process = require('process')
 
 const scope = 'hydra.consent'
-const oauth2 = OAuth2.create({
+const oauthToken = {
   client: {
     id: qs.escape(process.env.HYDRA_CLIENT_ID),
     secret: qs.escape(process.env.HYDRA_CLIENT_SECRET)
@@ -20,7 +20,17 @@ const oauth2 = OAuth2.create({
     useBodyAuth: false,
     useBasicAuthorizationHeader: true
   }
-})
+}
+
+console.log("**********************************************************************")
+console.log("HYDRA_URL           = "+ process.env.HYDRA_URL)
+console.log("HYDRA_CLIENT_ID     = "+ process.env.HYDRA_CLIENT_ID)
+console.log("HYDRA_CLIENT_SECRET = "+ process.env.HYDRA_CLIENT_SECRET)
+console.log("\n")
+console.log(oauthToken)
+console.log("**********************************************************************")
+console.log("\n\n")
+const oauth2 = OAuth2.create(oauthToken)
 
 // Instantiating a hydra config. If you provide no config, the hydra-js library will try to figure them out
 // from the environment variables, such as HYDRA_CLIENT_ID, HYDRA_CLIENT_SECRET, and HYDRA_URL.
@@ -32,6 +42,9 @@ const hydra = new Hydra.OAuth2Api()
 const refreshToken = () => oauth2.clientCredentials
   .getToken({ scope })
   .then((result) => {
+    console.log("RefreshToken received")
+    console.log(result)
+    console.log("\n\n")
     const token = oauth2.accessToken.create(result);
     const hydraClient = Hydra.ApiClient.instance
     hydraClient.authentications.oauth2.accessToken = token.token.access_token

@@ -8,7 +8,7 @@ help: ## This help
 
 DOCKER_ACCOUNT=boeboe
 APP_NAME=hydra-consent-app-express
-TAG=1.0.0
+TAG=v1.4.6
 
 DOCKER_ENV='-e HYDRA_URL="http://localhost:4444" -e HYDRA_CLIENT_ID="demo" -e HYDRA_CLIENT_SECRET="demo"'
 
